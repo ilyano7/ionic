@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add New</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="ion-margin">
+
+
+    <form #f="ngForm">
+      <label for="">Owner</label>
+      <input ngModel type="text" class="form-control" name="owner">
+      <label for="">Title</label>
+      <input ngModel type="text" class="form-control" name="title">
+      <label for="">Content</label>
+      <input ngModel type="text" class="form-control" name="Content">
+      <label for="">Image</label>
+      <input ngModel type="url" class="form-control" name="image">
+      <label for="">Price</label>
+      <input ngModel type="text" class="form-control" name="price">
+
+      <ion-button color="primary" (click)="addNewAds(f.value)">Add</ion-button>
+
+    </form>
+
+  </div>
+
+</ion-content>

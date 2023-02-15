@@ -1,0 +1,75 @@
+
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>
+        Our Announcments
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-icon routerLink="/add-announcment" slot="icon-only" name="add-circle-outline"></ion-icon>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-segment value="all" [(ngModel)]="selectTabs" (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="All">
+          All
+        </ion-segment-button>
+        <ion-segment-button value="My announcments">
+          My announcments
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+    
+  </ion-header>
+<ion-content [fullscreen]="true">
+  <ion-text>
+    <h3>Filter:</h3>
+  </ion-text>
+  <ion-radio-group value="All-checked" class="padding-top padding-left" 
+  (ionChange)="checkValue($event)">
+    <ion-item>
+      <ion-radio value="All-checked"  > </ion-radio>
+    <ion-label style="margin-right: 15px;margin-left: 10px" >All</ion-label>
+  </ion-item>
+    <ion-item>
+      <ion-radio value="electronic" ></ion-radio>
+      <ion-label style="margin-right: 15px; margin-left: 10px" >electronic</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-radio value="auto" ></ion-radio>
+      <ion-label style="margin-left: 10px">auto</ion-label>
+    </ion-item>
+    
+
+  </ion-radio-group>
+  <div *ngIf="selectTabs=='All'">
+    <ion-card *ngFor="let an of allAnnoncment">
+      <img alt="Silhouette of mountains" src="{{an.image}}" style="width: 100%;" />
+      <ion-card-header>
+        <ion-card-title>{{an.title}}</ion-card-title>
+        <ion-card-subtitle>{{an.price}}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{an.content}}
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div *ngIf="selectTabs=='My announcments'">
+    <ion-card *ngFor="let an of myAnnouncments">
+      <img alt="Silhouette of mountains" src="{{an.image}}" style="width: 100%;" />
+      <ion-card-header>
+        <ion-card-title>{{an.title}}</ion-card-title>
+        <ion-card-subtitle>{{an.price}}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{an.content}}
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+</ion-content>
